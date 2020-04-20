@@ -30,10 +30,28 @@ func TestSum(t *testing.T) {
 }
 
 func TestSumALl(t *testing.T) {
-	got := SumAll([]int{1, 2}, []int{0,9})
-	expected := []int{3,9}
-
-	if !reflect.DeepEqual(got, expected) {
-		t.Errorf("got %v, expected %v", got, expected)
+	assertCorrectAnswer := func(t *testing.T, got, expected []int) {
+		t.Helper()
+		if !reflect.DeepEqual(got, expected) {
+			t.Errorf("got %v, expected %v", got, expected)
+		}
 	}
+
+	t.Run("collection of arrays", func(t *testing.T) {
+		got := SumAll([]int{1, 2}, []int{0,9})
+		expected := []int{3,9}
+		assertCorrectAnswer(t, got, expected)
+	})
+
+	t.Run("collection of arrays and sum of tails", func(t *testing.T) {
+		got := SumAllTails([]int{1, 2}, []int{0,9})
+		expected := []int{2,9}
+		assertCorrectAnswer(t, got, expected)
+	})
+
+	t.Run("safely sum empty slices", func(t *testing.T) {
+		got := SumAllTails([]int{}, []int{3, 4, 5})
+		expected := []int{0,9}
+		assertCorrectAnswer(t, got, expected)
+	})
 }
