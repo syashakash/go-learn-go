@@ -4,15 +4,13 @@ import "fmt"
 
 const englishHelloPrefix = "Hello, "
 
-func sayHelloWorld() string {
-	return englishHelloPrefix + "World!!"
-}
-
-func sayHelloCustom(name string) string {
+func sayHello(name string) string {
+	if name == "" {
+		name = "World"
+	}
 	return englishHelloPrefix + name + "!!"
 }
 
 func main() {
-	fmt.Println(sayHelloWorld())
-	fmt.Println(sayHelloCustom("Akash"))
+	fmt.Println(sayHello(""))
 }
