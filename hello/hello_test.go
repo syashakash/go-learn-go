@@ -13,25 +13,25 @@ func TestSayHelloCustom(t *testing.T)  {
 
 	t.Run("saying hello to people", func(t *testing.T) {
 		expected := "Hello, Akash!!"
-		got := sayHello("Akash", "EN")
+		got := SayHello("Akash", "EN")
 		assertCorrectMessage(t, got, expected)
 	})
 
 	t.Run("say 'Hello, World!!'", func(t *testing.T) {
 		expected := "Hello, World!!"
-		got := sayHello("", "EN")
+		got := SayHello("", "EN")
 		assertCorrectMessage(t, got, expected)
 	})
 
 	t.Run("in Spanish", func(t *testing.T) {
 		expected := "Hola, Elodie!!"
-		got := sayHello("Elodie", "ES")
+		got := SayHello("Elodie", "ES")
 		assertCorrectMessage(t, got, expected)
 	})
 
 	t.Run("in French",func(t *testing.T) {
 		expected := "Bonjour, Elodie!!"
-		got := sayHello("Elodie", "FR")
+		got := SayHello("Elodie", "FR")
 		assertCorrectMessage(t, got, expected)
 	})
 }
