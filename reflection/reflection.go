@@ -6,9 +6,11 @@ import (
 
 func walk(x interface{}, fn func(input string)) {
 	val := reflect.ValueOf(x)
-	//fmt.Println(val)
-	//fmt.Println(x)
-	field := val.Field(0)
-	//fmt.Println(field)
-	fn(field.String())
+	for i := 0; i < val.NumField(); i++ {
+		field := val.Field(i)
+
+		if field.Kind() == reflect.String {
+			fn(field.String())
+		}
+	}
 }
