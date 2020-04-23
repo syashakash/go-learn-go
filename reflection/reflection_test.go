@@ -32,8 +32,22 @@ func TestWalk(t *testing.T) {
 			struct {
 				Name string
 				Age int
-			}{ "Akash", 33},
+			}{ "Akash", 23},
 			[]string{"Akash"},
+		},
+		{
+			"Nested fields",
+			struct {
+				Name string
+				Profile struct {
+					Age int
+					City string
+				}
+			}{"Akash", struct{
+				Age int
+				City string
+			}{23, "Singapore"}},
+			[]string{"Akash", "Singapore"},
 		},
 	}
 
