@@ -60,7 +60,7 @@ func TestWalk(t *testing.T) {
 				"Akash",
 				Profile{23, "Singapore"},
 			},
-			[]string{"Aaksh", "Singapore"},
+			[]string{"Akash", "Singapore"},
 		},
 	}
 
