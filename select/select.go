@@ -10,8 +10,9 @@ func Racer(a, b string) (winner string)  {
 	http.Get(a)
 	aDuration := time.Since(startA)
 
+	startB := time.Now()
 	http.Get(b)
-	bDuration := time.Since(b)
+	bDuration := time.Since(startB)
 	if aDuration < bDuration {
 		return a
 	}
