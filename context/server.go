@@ -1,13 +1,13 @@
 package context
 
 import (
+	"context"
 	"fmt"
 	"net/http"
 )
 
 type Store interface {
-	Fetch() string
-	Cancel()
+	Fetch(context.Context) (string,error)
 }
 
 
