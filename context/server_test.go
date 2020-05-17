@@ -21,7 +21,7 @@ type SpyStore struct {
 	t *testing.T
 }
 
-func (s *SpyStore) Fetch(ctx context.Context) string {
+func (s *SpyStore) Fetch(ctx context.Context) (string,error) {
 	data := make(chan string, 1)
 
 	go func() {
