@@ -2,6 +2,11 @@ package property_based_tests
 
 import "strings"
 
+type RomanNumeral struct {
+	Value  int
+	Symbol string
+}
+
 func ConvertToRoman(arabic int) string {
 	var result strings.Builder
 
